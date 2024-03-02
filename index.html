@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Onepeiceman</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+    <style>
+        /* Add @font-face rule to define the custom font */
+        @font-face {
+            font-family: 'one_pieceregular';
+            src: url('one_piece_font-webfont.woff2') format('woff2'),
+                 url('one_piece_font-webfont.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        /* CSS for video */
+        #bg-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Cover the entire viewport while maintaining aspect ratio */
+            z-index: -1; /* Make sure the video is behind other content */
+        }
+
+        /* Prevent scrolling */
+        body {
+            overflow: hidden;
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+            font-family: 'one_pieceregular', sans-serif; /* Apply custom font */
+        }
+
+        /* Animation for "Welcome to Merry Journals" text */
+        @keyframes text {
+            from {
+                margin-left: 100%; /* Start off-screen */
+            }
+            to {
+                margin-left: 0%; /* Move to the left edge */
+            }
+        }
+
+        /* Animation for "Explore" button */
+        @keyframes button-appear {
+            from {
+                opacity: 0; /* Start invisible */
+                transform: translateY(20px); /* Move down slightly */
+            }
+            to {
+                opacity: 1; /* End visible */
+                transform: translateY(0); /* Move back to original position */
+            }
+        }
+
+        .animated-text {
+            font-size: 36px;
+            color: #32527B;
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 1; /* Initially visible */
+            animation: text 2s ease forwards; 
+            font-weight: bold;
+        }
+
+        /* Style for the "Explore" button */
+        .explore-button {
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #1b7a9f;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            opacity: 0; /* Initially hidden */
+            animation: button-appear 2s ease forwards; /* Apply the animation */
+        }
+
+        /* Responsive styles */
+        @media screen and (max-width: 768px) {
+            .animated-text {
+                font-size: 20px;
+                top: 20%;
+                width: 75%;
+            }
+            .explore-button {
+                top: 30%;
+                font-size: 16px;
+                
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .animated-text {
+                font-size: 20px;
+                top: 10%;
+            }
+            .explore-button {
+                top: 25%;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <video autoplay muted loop id="bg-video">
+        <source src="./public/going-merry-ship-one-piece-moewalls-com.mp4" type="video/mp4"> <!-- Use a relative path or a URL -->
+    </video>
+
+    <div class="container">
+        <!-- Your content goes here -->
+        <div class="animated-text">
+            <h2 id="zero"> Welcome to Merry Journals</h2>
+        </div>
+    </div>
+    <button class="explore-button">Explore</button>
+
+    <img src="./public/logo.png" alt="one piece logo" width="150px" height="75px">
+    <a href="pavan.html"><button class="explore-button">Explore</button></a>
+
+</body>
+</html>

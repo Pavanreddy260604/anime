@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home</title>
+    <style>
+        /* Default styles */
+        #bg-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .container {
+            display: inline-block;
+            cursor: pointer;
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1001;
+        }
+
+        .bar1, .bar2, .bar3 {
+            width: 35px;
+            height: 5px;
+            background-color: cornsilk;
+            margin: 6px 0;
+            transition: 0.4s;
+        }
+
+        .change .bar1 {
+            transform: translate(0, 11px) rotate(-45deg);
+        }
+
+        .change .bar2 {
+            opacity: 0;
+        }
+
+        .change .bar3 {
+            transform: translate(0, -11px) rotate(45deg);
+        }
+
+        .menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+
+        .menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        .menu ul li {
+            margin: 20px 0;
+        }
+
+        .menu ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 24px;
+        }
+
+        .show-menu {
+            display: block;
+        }
+
+        .exit-button::after {
+            content: "✕";
+            font-size: 28px;
+            color: cornsilk;
+        }
+
+        img {
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            max-width: 100%;
+            height: auto;
+            margin-top: 50px; /* Adjust margin as needed */
+        }
+
+        /* Media queries for responsiveness */
+        @media screen and (max-width: 768px) {
+            img {
+                margin-top: 20px; /* Adjust margin as needed */
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container" onclick="toggleMenu()">
+    <div class="bar1"></div>
+    <div class="bar2"></div>
+    <div class="bar3"></div>
+</div>
+
+<div class="menu" id="menu">
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Character Profiles</a></li>
+        <li><a href="#">Episode Summaries</a></li>
+        <li><a href="#">Fan Art Gallery</a></li>
+        <li><a href="#">Discussion Forum</a></li>
+    </ul>
+</div>
+
+<video autoplay muted loop id="bg-video">
+    <source src="./public/luffy-x-otama-wano-country-one-piece-moewalls-com (1).mp4" type="video/mp4">
+</video>
+
+<img src="./public/logo.png" width="350px" height="170px" />
+
+<script>
+    var container = document.querySelector('.container');
+    var menu = document.getElementById("menu");
+
+    function toggleMenu() {
+        container.classList.toggle("change");
+        menu.classList.toggle("show-menu");
+    }
+</script>
+</body>
+</html>
